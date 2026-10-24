@@ -14,3 +14,4 @@ A web-based industrial computer vision application that detects and classifies s
 * **Frontend:** Vanilla JavaScript, HTML5, CSS3
 * **Deployment:** Vercel
 
+Live Website Link: https://defectometer.vercel.app/
