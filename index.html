@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Defectometer — industrial AI defect detection for manufacturing quality control."
+    />
+    <title>Defectometer | Industrial Defect Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Orbitron:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="scanline" aria-hidden="true"></div>
+    <main class="app">
+      <header class="header">
+        <p class="header-tag">Industrial AI Inspection</p>
+        <h1 class="logo">
+          <span class="logo-defect">defect</span><span class="logo-o">o</span><span class="logo-meter">meter</span>
+        </h1>
+        <p class="header-sub">
+          Upload a surface image for automated defect classification via Roboflow inference.
+        </p>
+      </header>
+
+      <section class="panel upload-panel" aria-labelledby="upload-heading">
+        <h2 id="upload-heading" class="panel-title">Image capture</h2>
+
+        <div
+          id="drop-zone"
+          class="drop-zone"
+          tabindex="0"
+          role="button"
+          aria-label="Drop an image here or activate to browse files"
+        >
+          <div class="drop-zone-inner">
+            <svg class="drop-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 16l-4-4h3V4h2v8h3l-4 4zm-7 4h14v2H5v-2z"
+                fill="currentColor"
+              />
+            </svg>
+            <p class="drop-text">Drag &amp; drop an image here</p>
+            <p class="drop-hint">PNG, JPG, WEBP — max recommended 10 MB</p>
+          </div>
+        </div>
+
+        <input
+          type="file"
+          id="file-input"
+          accept="image/*"
+          hidden
+        />
+        <input
+          type="file"
+          id="camera-input"
+          accept="image/*"
+          capture="environment"
+          hidden
+        />
+
+        <div class="actions">
+          <button type="button" id="browse-btn" class="btn btn-primary">
+            Browse files
+          </button>
+          <button type="button" id="camera-btn" class="btn btn-secondary">
+            Use camera
+          </button>
+        </div>
+      </section>
+
+      <section class="panel preview-panel" aria-labelledby="preview-heading">
+        <h2 id="preview-heading" class="panel-title">Preview</h2>
+        <div id="preview-container" class="preview-container">
+          <p class="preview-placeholder">No image selected</p>
+          <div id="preview-canvas-wrap" class="preview-canvas-wrap hidden">
+            <canvas
+              id="preview-canvas"
+              class="preview-canvas"
+              aria-label="Uploaded inspection image with defect bounding boxes"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel results-panel" aria-labelledby="results-heading">
+        <h2 id="results-heading" class="panel-title">Analysis</h2>
+        <div id="results-container" class="results-container" aria-live="polite">
+          <p class="results-idle">Upload an image to run defect detection.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <button
+          type="button"
+          id="contact-toggle"
+          class="contact-trigger"
+          aria-expanded="false"
+          aria-controls="contact-panel"
+        >
+          Contact
+        </button>
+      </footer>
+
+      <div
+        id="contact-panel"
+        class="contact-panel hidden"
+        role="region"
+        aria-labelledby="contact-heading"
+        hidden
+      >
+        <h2 id="contact-heading" class="contact-heading">Team</h2>
+        <ul class="contact-list">
+          <li class="contact-row">
+            <span class="contact-name">Mohd Shoyab</span>
+            <a
+              class="contact-link"
+              href="https://www.linkedin.com/in/mohdshoyab26/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li class="contact-row">
+            <span class="contact-name">Harshitha</span>
+            <a
+              class="contact-link"
+              href="https://www.linkedin.com/in/mudunuri-harshitha/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li class="contact-row">
+            <span class="contact-name">Moukthika Reddy</span>
+            <span class="contact-link contact-link--none" aria-hidden="true">—</span>
+          </li>
+          <li class="contact-row">
+            <span class="contact-name">Anya Jain</span>
+            <a
+              class="contact-link"
+              href="https://www.linkedin.com/in/anya-jain-64b52a37b/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li class="contact-row">
+            <span class="contact-name">Sameeha</span>
+            <span class="contact-link contact-link--none" aria-hidden="true">—</span>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
